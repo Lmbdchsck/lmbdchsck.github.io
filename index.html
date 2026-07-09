@@ -98,6 +98,42 @@
     font-weight: 500;
   }
 
+  .icon-row {
+    display: flex;
+    gap: 12px;
+    margin: -14px 0 40px;
+  }
+
+  .icon-row a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    border: 1px solid var(--line);
+    color: var(--muted);
+    text-decoration: none;
+    transition: border-color 0.25s ease, color 0.25s ease, background 0.25s ease, transform 0.2s ease;
+  }
+
+  .icon-row a svg {
+    width: 17px;
+    height: 17px;
+  }
+
+  .icon-row a:hover {
+    border-color: var(--orange);
+    color: var(--orange);
+    background: rgba(227,112,58,0.08);
+    transform: translateY(-2px);
+  }
+
+  .icon-row a:focus-visible {
+    outline: 2px solid var(--orange);
+    outline-offset: 3px;
+  }
+
   nav {
     display: flex;
     flex-direction: column;
@@ -120,8 +156,20 @@
 
   nav a .label {
     display: flex;
-    align-items: baseline;
+    align-items: center;
     gap: 12px;
+  }
+
+  nav a .icon {
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+    color: var(--muted);
+    transition: color 0.25s ease;
+  }
+
+  nav a:hover .icon {
+    color: var(--orange);
   }
 
   nav a .tag {
@@ -201,8 +249,19 @@
     font-size: 12px;
     color: var(--muted);
     display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  footer .row {
+    display: flex;
     align-items: center;
     gap: 10px;
+  }
+
+  footer .updated {
+    padding-left: 15px;
+    opacity: 0.7;
   }
 
   footer .dot {
@@ -225,6 +284,18 @@
     <h1>Alexander&nbsp;Ho</h1>
     <p class="role">PhD candidate developing <strong>multimodal, label-free optical imaging</strong> systems and AI-driven autonomous acquisition for biomedical research.</p>
 
+    <div class="icon-row">
+      <a href="https://www.linkedin.com/in/alexander-ho-617604162" aria-label="LinkedIn">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.03-1.85-3.03-1.85 0-2.14 1.44-2.14 2.94v5.66H9.36V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45z"/></svg>
+      </a>
+      <a href="https://scholar.google.com/citations?user=xSqIbyoAAAAJ&hl=en" aria-label="Google Scholar">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3 1 9l11 6 9-4.91V17h2V9L12 3zm0 8.5L4.24 7.5 12 5l7.76 2.5L12 11.5zM5 13.18v3.79c0 1.72 3.13 3.13 7 3.13s7-1.41 7-3.13v-3.79l-7 3.82-7-3.82z"/></svg>
+      </a>
+      <a href="mailto:ah36@illinois.edu" aria-label="Email">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+      </a>
+    </div>
+
     <nav>
       <div class="poster-row">
         <span class="label">GRC Poster <span class="tag">PDF</span></span>
@@ -233,21 +304,20 @@
           <a class="chip" href="https://drive.google.com/drive/folders/1ueZoFzSNTRc8gtTEhHWKqMEGS3ZgeefD?usp=sharing">Drive</a>
         </span>
       </div>
-      <a href="https://www.linkedin.com/in/alexander-ho-617604162">
-        <span class="label">LinkedIn</span>
-        <span class="arrow">&#8594;</span>
-      </a>
-      <a href="https://scholar.google.com/citations?user=xSqIbyoAAAAJ&hl=en">
-        <span class="label">Google Scholar</span>
+      <a href="shared/Alexander_Ho_CV.pdf">
+        <span class="label">CV <span class="tag">PDF</span></span>
         <span class="arrow">&#8594;</span>
       </a>
       <a href="https://biophotonics.illinois.edu">
-        <span class="label">Lab Website</span>
+        <span class="label">Biophotonics Imaging Lab Website</span>
         <span class="arrow">&#8594;</span>
       </a>
     </nav>
 
-    <footer><span class="dot"></span> Beckman Institute for Advanced Science and Technology</footer>
+    <footer>
+      <div class="row"><span class="dot"></span> Beckman Institute for Advanced Science and Technology</div>
+      <div class="updated">Last updated July 2026</div>
+    </footer>
   </div>
 </body>
 </html>
