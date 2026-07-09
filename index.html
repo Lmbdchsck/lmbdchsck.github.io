@@ -67,6 +67,91 @@
     );
   }
 
+  .star-trails {
+    position: fixed;
+    top: 8%;
+    left: 82%;
+    width: 600px;
+    height: 600px;
+    transform: translate(-50%, -50%);
+    animation: spin 160s linear infinite;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .star-trails circle.trail {
+    fill: none;
+    stroke: var(--paper);
+  }
+
+  .star-trails circle.star {
+    fill: var(--paper);
+  }
+
+  @keyframes spin {
+    from { transform: translate(-50%, -50%) rotate(0deg); }
+    to   { transform: translate(-50%, -50%) rotate(360deg); }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .star-trails { animation: none; }
+  }
+
+  .shooting-stars {
+    position: fixed;
+    top: 8%;
+    left: 82%;
+    width: 600px;
+    height: 600px;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    z-index: 0;
+    overflow: visible;
+  }
+
+  .streak {
+    position: absolute;
+    width: 2px;
+    height: 80px;
+    border-radius: 2px;
+    background: linear-gradient(to bottom, rgba(244,241,234,0), rgba(244,241,234,0.9));
+    opacity: 0;
+  }
+
+  .streak1 { top: 40px;  left: 480px; transform: rotate(35deg);  animation: shoot1 7s ease-in infinite; animation-delay: 0.5s; }
+  .streak2 { top: 120px; left: 90px;  transform: rotate(-40deg); animation: shoot2 8s ease-in infinite; animation-delay: 2.4s; }
+  .streak3 { top: 380px; left: 520px; transform: rotate(150deg); animation: shoot3 9s ease-in infinite; animation-delay: 4.3s; }
+  .streak4 { top: 60px;  left: 260px; transform: rotate(55deg);  animation: shoot4 6.5s ease-in infinite; animation-delay: 6.1s; }
+
+  @keyframes shoot1 {
+    0%   { opacity: 0; transform: rotate(35deg) translateY(0); }
+    4%   { opacity: 1; }
+    16%  { opacity: 0; transform: rotate(35deg) translateY(260px); }
+    100% { opacity: 0; }
+  }
+  @keyframes shoot2 {
+    0%   { opacity: 0; transform: rotate(-40deg) translateY(0); }
+    4%   { opacity: 1; }
+    15%  { opacity: 0; transform: rotate(-40deg) translateY(230px); }
+    100% { opacity: 0; }
+  }
+  @keyframes shoot3 {
+    0%   { opacity: 0; transform: rotate(150deg) translateY(0); }
+    4%   { opacity: 1; }
+    17%  { opacity: 0; transform: rotate(150deg) translateY(240px); }
+    100% { opacity: 0; }
+  }
+  @keyframes shoot4 {
+    0%   { opacity: 0; transform: rotate(55deg) translateY(0); }
+    4%   { opacity: 1; }
+    14%  { opacity: 0; transform: rotate(55deg) translateY(200px); }
+    100% { opacity: 0; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .streak { animation: none; display: none; }
+  }
+
   .card {
     position: relative;
     width: 100%;
@@ -295,6 +380,174 @@
 </style>
 </head>
 <body>
+  <svg class="star-trails" viewBox="0 0 600 600">
+    <!-- concentric partial arcs, like circumpolar star trails, orbiting the top-right motif center -->
+    <circle class="trail" cx="300" cy="300" r="280" stroke-width="1" stroke-opacity="0.10" stroke-dasharray="220 1539"/>
+    <circle class="trail" cx="300" cy="300" r="238" stroke-width="1" stroke-opacity="0.13" stroke-dasharray="340 1155"/>
+    <circle class="trail" cx="300" cy="300" r="200" stroke-width="1.2" stroke-opacity="0.15" stroke-dasharray="150 1106"/>
+    <circle class="trail" cx="300" cy="300" r="160" stroke-width="1" stroke-opacity="0.12" stroke-dasharray="440 565"/>
+    <circle class="trail" cx="300" cy="300" r="120" stroke-width="1.2" stroke-opacity="0.17" stroke-dasharray="100 654"/>
+    <circle class="trail" cx="300" cy="300" r="80"  stroke-width="1" stroke-opacity="0.14" stroke-dasharray="180 322"/>
+    <!-- bright "star" points riding at the leading edge of a few trails -->
+    <circle class="star" cx="491.6" cy="330.4" r="0.95" opacity="0.72"/>
+    <circle class="star" cx="459.2" cy="171.8" r="1.16" opacity="0.36"/>
+    <circle class="star" cx="223.9" cy="297.4" r="0.92" opacity="0.67"/>
+    <circle class="star" cx="331.0" cy="464.7" r="1.59" opacity="0.35"/>
+    <circle class="star" cx="223.0" cy="72.0" r="0.87" opacity="0.83"/>
+    <circle class="star" cx="391.1" cy="360.1" r="1.63" opacity="0.65"/>
+    <circle class="star" cx="269.4" cy="61.0" r="1.77" opacity="0.54"/>
+    <circle class="star" cx="381.2" cy="151.1" r="1.65" opacity="0.64"/>
+    <circle class="star" cx="503.4" cy="360.3" r="1.02" opacity="0.39"/>
+    <circle class="star" cx="364.5" cy="347.5" r="1.4" opacity="0.53"/>
+    <circle class="star" cx="329.8" cy="414.8" r="1.73" opacity="0.67"/>
+    <circle class="star" cx="388.3" cy="463.2" r="0.88" opacity="0.54"/>
+    <circle class="star" cx="113.8" cy="75.0" r="1.45" opacity="0.77"/>
+    <circle class="star" cx="330.5" cy="530.3" r="1.05" opacity="0.48"/>
+    <circle class="star" cx="369.4" cy="274.0" r="1.05" opacity="0.68"/>
+    <circle class="star" cx="408.1" cy="235.7" r="0.99" opacity="0.47"/>
+    <circle class="star" cx="286.2" cy="471.6" r="1.69" opacity="0.55"/>
+    <circle class="star" cx="376.4" cy="298.8" r="0.8" opacity="0.37"/>
+    <circle class="star" cx="268.2" cy="267.2" r="1.16" opacity="0.38"/>
+    <circle class="star" cx="421.8" cy="297.0" r="1.77" opacity="0.78"/>
+    <circle class="star" cx="296.7" cy="282.1" r="1.29" opacity="0.48"/>
+    <circle class="star" cx="448.6" cy="425.4" r="1.2" opacity="0.83"/>
+    <circle class="star" cx="278.1" cy="559.3" r="0.9" opacity="0.81"/>
+    <circle class="star" cx="222.4" cy="546.9" r="1.37" opacity="0.43"/>
+    <circle class="star" cx="78.3" cy="244.0" r="1.28" opacity="0.35"/>
+    <circle class="star" cx="405.1" cy="312.9" r="1.67" opacity="0.77"/>
+    <circle class="star" cx="394.6" cy="336.0" r="1.74" opacity="0.39"/>
+    <circle class="star" cx="437.1" cy="363.6" r="1.54" opacity="0.41"/>
+    <circle class="star" cx="159.2" cy="254.4" r="1.66" opacity="0.56"/>
+    <circle class="star" cx="227.9" cy="281.8" r="0.92" opacity="0.51"/>
+    <circle class="star" cx="127.2" cy="62.6" r="1.27" opacity="0.41"/>
+    <circle class="star" cx="259.0" cy="366.3" r="0.95" opacity="0.46"/>
+    <circle class="star" cx="276.3" cy="274.4" r="1.7" opacity="0.78"/>
+    <circle class="star" cx="302.6" cy="334.7" r="0.94" opacity="0.42"/>
+    <circle class="star" cx="50.2" cy="180.4" r="1.56" opacity="0.75"/>
+    <circle class="star" cx="356.0" cy="339.1" r="1.17" opacity="0.58"/>
+    <circle class="star" cx="198.4" cy="105.8" r="0.81" opacity="0.55"/>
+    <circle class="star" cx="371.0" cy="216.0" r="0.91" opacity="0.57"/>
+    <circle class="star" cx="276.3" cy="431.0" r="1.72" opacity="0.57"/>
+    <circle class="star" cx="56.7" cy="220.3" r="1.8" opacity="0.77"/>
+    <circle class="star" cx="556.4" cy="172.2" r="0.88" opacity="0.59"/>
+    <circle class="star" cx="239.2" cy="343.6" r="1.12" opacity="0.84"/>
+    <circle class="star" cx="319.0" cy="212.8" r="1.17" opacity="0.83"/>
+    <circle class="star" cx="24.0" cy="199.2" r="0.87" opacity="0.5"/>
+    <circle class="star" cx="48.4" cy="163.4" r="1.52" opacity="0.38"/>
+    <circle class="star" cx="121.3" cy="296.8" r="0.87" opacity="0.83"/>
+    <circle class="star" cx="314.7" cy="334.4" r="1.44" opacity="0.47"/>
+    <circle class="star" cx="337.5" cy="269.1" r="1.35" opacity="0.66"/>
+    <circle class="star" cx="185.5" cy="233.6" r="1.73" opacity="0.45"/>
+    <circle class="star" cx="315.3" cy="515.0" r="1.44" opacity="0.5"/>
+    <circle class="star" cx="301.2" cy="196.5" r="1.2" opacity="0.85"/>
+    <circle class="star" cx="563.2" cy="430.6" r="0.99" opacity="0.82"/>
+    <circle class="star" cx="489.9" cy="120.0" r="0.87" opacity="0.77"/>
+    <circle class="star" cx="137.9" cy="163.2" r="1.42" opacity="0.35"/>
+    <circle class="star" cx="225.5" cy="532.1" r="1.73" opacity="0.42"/>
+    <circle class="star" cx="337.0" cy="329.5" r="1.0" opacity="0.65"/>
+    <circle class="star" cx="362.1" cy="506.8" r="0.99" opacity="0.59"/>
+    <circle class="star" cx="452.3" cy="79.0" r="1.17" opacity="0.49"/>
+    <circle class="star" cx="302.1" cy="284.1" r="0.99" opacity="0.72"/>
+    <circle class="star" cx="147.9" cy="374.4" r="0.78" opacity="0.79"/>
+    <circle class="star" cx="42.7" cy="224.2" r="1.34" opacity="0.42"/>
+    <circle class="star" cx="281.8" cy="347.3" r="1.58" opacity="0.78"/>
+    <circle class="star" cx="366.2" cy="558.4" r="0.81" opacity="0.74"/>
+    <circle class="star" cx="81.5" cy="445.7" r="0.87" opacity="0.81"/>
+    <circle class="star" cx="554.4" cy="261.7" r="1.67" opacity="0.36"/>
+    <circle class="star" cx="190.7" cy="492.4" r="1.58" opacity="0.78"/>
+    <circle class="star" cx="274.5" cy="540.7" r="0.82" opacity="0.79"/>
+    <circle class="star" cx="344.0" cy="551.6" r="1.21" opacity="0.5"/>
+    <circle class="star" cx="333.3" cy="535.3" r="0.91" opacity="0.51"/>
+    <circle class="star" cx="551.4" cy="246.9" r="1.41" opacity="0.55"/>
+    <circle class="star" cx="17.5" cy="234.6" r="0.83" opacity="0.84"/>
+    <circle class="star" cx="363.2" cy="284.8" r="0.82" opacity="0.57"/>
+    <circle class="star" cx="214.7" cy="501.7" r="1.26" opacity="0.54"/>
+    <circle class="star" cx="294.8" cy="476.4" r="0.7" opacity="0.81"/>
+    <circle class="star" cx="268.3" cy="137.3" r="1.44" opacity="0.53"/>
+    <circle class="star" cx="282.3" cy="270.3" r="1.05" opacity="0.77"/>
+    <circle class="star" cx="232.7" cy="505.8" r="1.15" opacity="0.55"/>
+    <circle class="star" cx="368.1" cy="370.1" r="1.73" opacity="0.69"/>
+    <circle class="star" cx="99.8" cy="122.3" r="1.3" opacity="0.35"/>
+    <circle class="star" cx="213.8" cy="340.7" r="1.42" opacity="0.58"/>
+    <circle class="star" cx="331.4" cy="435.2" r="1.69" opacity="0.75"/>
+    <circle class="star" cx="353.9" cy="331.8" r="1.4" opacity="0.52"/>
+    <circle class="star" cx="301.7" cy="55.8" r="0.95" opacity="0.45"/>
+    <circle class="star" cx="300.7" cy="321.8" r="1.63" opacity="0.39"/>
+    <circle class="star" cx="210.2" cy="204.6" r="1.47" opacity="0.6"/>
+    <circle class="star" cx="253.7" cy="230.8" r="1.53" opacity="0.74"/>
+    <circle class="star" cx="260.1" cy="320.3" r="1.75" opacity="0.61"/>
+    <circle class="star" cx="300.1" cy="329.1" r="1.2" opacity="0.75"/>
+    <circle class="star" cx="501.4" cy="284.7" r="1.75" opacity="0.8"/>
+    <circle class="star" cx="264.2" cy="116.9" r="1.61" opacity="0.62"/>
+    <circle class="star" cx="289.4" cy="34.0" r="0.99" opacity="0.47"/>
+    <circle class="star" cx="319.2" cy="107.4" r="1.39" opacity="0.49"/>
+    <circle class="star" cx="291.8" cy="335.8" r="1.05" opacity="0.62"/>
+    <circle class="star" cx="306.3" cy="353.4" r="1.48" opacity="0.38"/>
+    <circle class="star" cx="175.5" cy="265.8" r="0.93" opacity="0.56"/>
+    <circle class="star" cx="68.1" cy="164.7" r="1.64" opacity="0.73"/>
+    <circle class="star" cx="421.4" cy="304.5" r="1.53" opacity="0.78"/>
+    <circle class="star" cx="53.6" cy="437.4" r="1.3" opacity="0.65"/>
+    <circle class="star" cx="314.7" cy="375.3" r="0.73" opacity="0.52"/>
+    <circle class="star" cx="130.9" cy="416.0" r="1.21" opacity="0.41"/>
+    <circle class="star" cx="486.5" cy="331.9" r="1.32" opacity="0.36"/>
+    <circle class="star" cx="428.3" cy="446.8" r="0.76" opacity="0.54"/>
+    <circle class="star" cx="265.5" cy="365.8" r="1.12" opacity="0.73"/>
+    <circle class="star" cx="296.5" cy="547.9" r="0.72" opacity="0.62"/>
+    <circle class="star" cx="126.6" cy="538.7" r="1.56" opacity="0.68"/>
+    <circle class="star" cx="514.8" cy="229.6" r="0.72" opacity="0.43"/>
+    <circle class="star" cx="275.6" cy="256.0" r="0.94" opacity="0.7"/>
+    <circle class="star" cx="413.5" cy="499.8" r="1.52" opacity="0.41"/>
+    <circle class="star" cx="538.2" cy="246.3" r="0.73" opacity="0.51"/>
+    <circle class="star" cx="497.6" cy="246.8" r="1.49" opacity="0.39"/>
+    <circle class="star" cx="154.9" cy="150.6" r="1.55" opacity="0.78"/>
+    <circle class="star" cx="432.8" cy="426.2" r="1.56" opacity="0.52"/>
+    <circle class="star" cx="207.3" cy="398.0" r="1.08" opacity="0.77"/>
+    <circle class="star" cx="493.5" cy="451.0" r="1.4" opacity="0.76"/>
+    <circle class="star" cx="104.1" cy="384.0" r="1.76" opacity="0.49"/>
+    <circle class="star" cx="65.6" cy="242.7" r="1.18" opacity="0.72"/>
+    <circle class="star" cx="353.8" cy="227.6" r="0.8" opacity="0.79"/>
+    <circle class="star" cx="218.7" cy="318.3" r="1.12" opacity="0.36"/>
+    <circle class="star" cx="405.1" cy="530.4" r="1.58" opacity="0.52"/>
+    <circle class="star" cx="221.1" cy="50.7" r="0.71" opacity="0.82"/>
+    <circle class="star" cx="292.7" cy="261.7" r="1.53" opacity="0.7"/>
+    <circle class="star" cx="104.4" cy="311.3" r="0.8" opacity="0.46"/>
+    <circle class="star" cx="227.8" cy="495.8" r="1.22" opacity="0.62"/>
+    <circle class="star" cx="296.6" cy="165.9" r="1.47" opacity="0.49"/>
+    <circle class="star" cx="362.0" cy="358.7" r="0.83" opacity="0.62"/>
+    <circle class="star" cx="390.5" cy="509.7" r="1.23" opacity="0.71"/>
+    <circle class="star" cx="15.1" cy="255.5" r="0.81" opacity="0.45"/>
+    <circle class="star" cx="333.7" cy="371.1" r="1.29" opacity="0.49"/>
+    <circle class="star" cx="28.1" cy="205.3" r="0.84" opacity="0.78"/>
+    <circle class="star" cx="406.3" cy="190.7" r="1.22" opacity="0.57"/>
+    <circle class="star" cx="363.2" cy="321.1" r="1.23" opacity="0.76"/>
+    <circle class="star" cx="413.7" cy="357.1" r="0.76" opacity="0.42"/>
+    <circle class="star" cx="242.7" cy="462.8" r="0.83" opacity="0.73"/>
+    <circle class="star" cx="346.8" cy="121.3" r="1.27" opacity="0.58"/>
+    <circle class="star" cx="388.8" cy="193.0" r="1.04" opacity="0.66"/>
+    <circle class="star" cx="288.4" cy="114.7" r="0.93" opacity="0.46"/>
+    <circle class="star" cx="410.2" cy="466.8" r="0.78" opacity="0.35"/>
+    <circle class="star" cx="182.7" cy="221.5" r="0.95" opacity="0.7"/>
+    <circle class="star" cx="96.9" cy="360.3" r="1.72" opacity="0.74"/>
+    <circle class="star" cx="199.3" cy="138.8" r="1.17" opacity="0.62"/>
+    <circle class="star" cx="464.8" cy="193.1" r="0.78" opacity="0.43"/>
+    <circle class="star" cx="299.3" cy="198.9" r="1.02" opacity="0.41"/>
+    <circle class="star" cx="235.4" cy="102.5" r="1.25" opacity="0.6"/>
+    <circle class="star" cx="336.3" cy="309.3" r="1.05" opacity="0.48"/>
+    <circle class="star" cx="339.4" cy="290.4" r="1.33" opacity="0.83"/>
+    <circle class="star" cx="161.7" cy="39.6" r="0.74" opacity="0.73"/>
+    <circle class="star" cx="214.8" cy="180.5" r="0.9" opacity="0.64"/>
+    <circle class="star" cx="107.7" cy="310.0" r="1.08" opacity="0.52"/>
+    <circle class="star" cx="426.9" cy="142.0" r="1.46" opacity="0.49"/>
+    <circle class="star" cx="408.8" cy="42.4" r="1.2" opacity="0.51"/>
+  </svg>
+
+  <div class="shooting-stars">
+    <div class="streak streak1"></div>
+    <div class="streak streak2"></div>
+    <div class="streak streak3"></div>
+    <div class="streak streak4"></div>
+  </div>
+
   <div class="card">
     <img class="headshot" src="headshot.jpg" alt="Alexander Ho">
     <div class="eyebrow">Biophotonics Imaging Laboratory · UIUC</div>
