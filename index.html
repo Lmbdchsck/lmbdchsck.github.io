@@ -1,19 +1,198 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Alexander Ho</title>
-  <meta charset="UTF-8">
-  <style>
-    body { font-family: sans-serif; max-width: 500px; margin: 60px auto; text-align: center; }
-    a { display: block; margin: 15px 0; font-size: 18px; text-decoration: none; color: #13294B; }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Alexander Ho</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap');
+
+  :root {
+    --navy: #0B1D3A;
+    --navy-deep: #071429;
+    --paper: #F4F1EA;
+    --orange: #E3703A;
+    --line: rgba(244, 241, 234, 0.14);
+    --muted: rgba(244, 241, 234, 0.62);
+  }
+
+  * { box-sizing: border-box; }
+
+  html { -webkit-font-smoothing: antialiased; }
+
+  body {
+    margin: 0;
+    min-height: 100vh;
+    background:
+      radial-gradient(ellipse 900px 500px at 50% -10%, rgba(227,112,58,0.16), transparent 60%),
+      linear-gradient(180deg, var(--navy) 0%, var(--navy-deep) 100%);
+    color: var(--paper);
+    font-family: 'Inter', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 48px 24px;
+  }
+
+  /* faint interference-fringe motif, referencing coherent optics */
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.5;
+    background-image: repeating-radial-gradient(
+      circle at 82% 8%,
+      rgba(244,241,234,0.05) 0px,
+      rgba(244,241,234,0.05) 1px,
+      transparent 2px,
+      transparent 34px
+    );
+  }
+
+  .card {
+    position: relative;
+    width: 100%;
+    max-width: 440px;
+  }
+
+  .eyebrow {
+    font-size: 12px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--orange);
+    font-weight: 600;
+    margin-bottom: 18px;
+  }
+
+  h1 {
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    font-size: 42px;
+    line-height: 1.05;
+    margin: 0 0 14px;
+    letter-spacing: -0.01em;
+  }
+
+  .role {
+    font-size: 15px;
+    color: var(--muted);
+    line-height: 1.55;
+    margin: 0 0 40px;
+    max-width: 36ch;
+  }
+
+  .role strong {
+    color: var(--paper);
+    font-weight: 500;
+  }
+
+  nav {
+    display: flex;
+    flex-direction: column;
+    border-top: 1px solid var(--line);
+  }
+
+  nav a {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 18px 2px;
+    text-decoration: none;
+    color: var(--paper);
+    border-bottom: 1px solid var(--line);
+    font-size: 16px;
+    font-weight: 500;
+    transition: padding-left 0.25s ease, color 0.25s ease;
+  }
+
+  nav a .label {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+  }
+
+  nav a .tag {
+    font-family: 'Fraunces', serif;
+    font-size: 12px;
+    color: var(--muted);
+    font-weight: 400;
+    font-style: italic;
+  }
+
+  nav a .arrow {
+    color: var(--orange);
+    font-size: 18px;
+    opacity: 0;
+    transform: translateX(-6px);
+    transition: opacity 0.25s ease, transform 0.25s ease;
+  }
+
+  nav a:hover {
+    padding-left: 10px;
+    color: var(--orange);
+  }
+
+  nav a:hover .arrow {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  nav a:focus-visible {
+    outline: 2px solid var(--orange);
+    outline-offset: 4px;
+    border-radius: 2px;
+  }
+
+  footer {
+    margin-top: 40px;
+    font-size: 12px;
+    color: var(--muted);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  footer .dot {
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--orange);
+    flex-shrink: 0;
+  }
+
+  @media (max-width: 420px) {
+    h1 { font-size: 34px; }
+  }
+</style>
 </head>
 <body>
-  <h1>Alexander Ho</h1>
-  <p>PhD Candidate, Biophotonics Imaging Laboratory, UIUC</p>
-  <a href="GRC_2026_QPISLAMCARS_V2.pdf">📄 GRC Poster (PDF)</a>
-  <a href="www.linkedin.com/in/alexander-ho-617604162">LinkedIn</a>
-  <a href="https://scholar.google.com/citations?user=xSqIbyoAAAAJ&hl=en">Google Scholar</a>
-  <a href="https://biophotonics.illinois.edu">Lab Website</a>
+  <div class="card">
+    <div class="eyebrow">Biophotonics Imaging Laboratory · UIUC</div>
+    <h1>Alexander&nbsp;Ho</h1>
+    <p class="role">PhD candidate developing <strong>multimodal, label-free optical imaging</strong> systems and AI-driven autonomous acquisition for biomedical research.</p>
+
+    <nav>
+      <a href="GRC_2026_QPISLAMCARS_V3.pdf">
+        <span class="label">GRC Poster <span class="tag">PDF</span></span>
+        <span class="arrow">&#8594;</span>
+      </a>
+      <a href="https://www.linkedin.com/in/alexander-ho-617604162">
+        <span class="label">LinkedIn</span>
+        <span class="arrow">&#8594;</span>
+      </a>
+      <a href="https://scholar.google.com/citations?user=xSqIbyoAAAAJ&hl=en">
+        <span class="label">Google Scholar</span>
+        <span class="arrow">&#8594;</span>
+      </a>
+      <a href="https://biophotonics.illinois.edu">
+        <span class="label">Lab Website</span>
+        <span class="arrow">&#8594;</span>
+      </a>
+    </nav>
+
+    <footer><span class="dot"></span> Beckman Institute for Advanced Science and Technology</footer>
+  </div>
 </body>
 </html>
