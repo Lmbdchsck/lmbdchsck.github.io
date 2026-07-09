@@ -156,6 +156,46 @@
     border-radius: 2px;
   }
 
+  .poster-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 18px 2px;
+    border-bottom: 1px solid var(--line);
+    font-size: 16px;
+    font-weight: 500;
+  }
+
+  .poster-links {
+    display: flex;
+    gap: 8px;
+    flex-shrink: 0;
+  }
+
+  .chip {
+    display: inline-block;
+    text-decoration: none;
+    color: var(--paper);
+    font-size: 13px;
+    font-weight: 600;
+    padding: 6px 14px;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    transition: border-color 0.25s ease, color 0.25s ease, background 0.25s ease;
+  }
+
+  .chip:hover {
+    border-color: var(--orange);
+    color: var(--orange);
+    background: rgba(227,112,58,0.08);
+  }
+
+  .chip:focus-visible {
+    outline: 2px solid var(--orange);
+    outline-offset: 2px;
+  }
+
   footer {
     margin-top: 40px;
     font-size: 12px;
@@ -186,10 +226,13 @@
     <p class="role">PhD candidate developing <strong>multimodal, label-free optical imaging</strong> systems and AI-driven autonomous acquisition for biomedical research.</p>
 
     <nav>
-      <a href="https://uofi.box.com/s/isyh4q99709mm08tf1l0k88f8hsambb8">
+      <div class="poster-row">
         <span class="label">GRC Poster <span class="tag">PDF</span></span>
-        <span class="arrow">&#8594;</span>
-      </a>
+        <span class="poster-links">
+          <a class="chip" href="https://uofi.box.com/s/isyh4q99709mm08tf1l0k88f8hsambb8">Box</a>
+          <a class="chip" href="https://drive.google.com/drive/folders/1ueZoFzSNTRc8gtTEhHWKqMEGS3ZgeefD?usp=sharing">Drive</a>
+        </span>
+      </div>
       <a href="https://www.linkedin.com/in/alexander-ho-617604162">
         <span class="label">LinkedIn</span>
         <span class="arrow">&#8594;</span>
